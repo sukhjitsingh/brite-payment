@@ -7,8 +7,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-
-router.post('/create/payment', function(req, res, next) {
+router.post('/api/payment', function(req, res, next) {
   coinPaymentClient.getBasicInfo(function (err, response) {
     console.log(response)
   })
