@@ -7,6 +7,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+//Post payment
 router.post('/api/payment', function(req, res, next) {
   coinPaymentClient.getBasicInfo(function (err, response) {
     console.log(response)
@@ -19,5 +20,13 @@ router.post('/api/payment', function(req, res, next) {
   });
 
 });
+
+//Get transaction status
+router.get('/api/payment/status', function(req,res,next) {
+  coinPaymentClient.getTx('',function(err,result){
+    console.log(result);
+  })
+  
+})
 
 module.exports = router;
