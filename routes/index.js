@@ -13,7 +13,7 @@ router.post('/api/payment', function(req, res, next) {
     console.log(response)
   })
 
-  coinPaymentClient.createTransaction({'currency1' : 'LTCT', 'currency2' : 'LTCT', 'amount' : req.body.amount},function(err,result){
+  coinPaymentClient.createTransaction({'currency1' : 'DASH', 'currency2' : 'DASH', 'amount' : req.body.amount},function(err,result){
     res.status(200)
     res.send({payment: result});
     res.end()
