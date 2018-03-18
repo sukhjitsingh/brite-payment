@@ -22,11 +22,12 @@ router.post('/api/payment', function(req, res, next) {
 });
 
 //Get transaction status
-router.get('/api/payment/status', function(req,res,next) {
-  coinPaymentClient.getTx('',function(err,result){
-    console.log(result);
+router.post('/api/payment/status', function(req,res,next) {
+  coinPaymentClient.getTx(req.body.paymentID,function(err,result){
+    res.status(200)
+    res.send({paymentStatus: result.status})
+    res.end()
   })
-  
 })
 
 module.exports = router;
